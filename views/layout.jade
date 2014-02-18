@@ -1,0 +1,23 @@
+doctype html
+html
+    head
+        title= title
+        link(rel='stylesheet', href='/css/myMeanApp.css')
+    body
+        div.container
+            div(ng-app='myMeanApp')
+                block content
+        div.footer
+            div free to home
+
+        // 3rd Party Libraries
+        script(src='/jslib/moment-min.js')
+        script(src='//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js')
+        script(src='https://ajax.googleapis.com/ajax/libs/angularjs/1.2.13/angular.min.js')
+        script(src='https://ajax.googleapis.com/ajax/libs/angularjs/1.2.13/angular-resource.min.js')
+
+        // site common
+        script(src='js/myMeanApp.js')
+
+        // page specific includes
+        block jsIncludes
