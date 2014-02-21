@@ -1,3 +1,10 @@
 extends layout
 block content
-    div#content(ng-view)  YO
+    div(ng-app='myMeanApp')
+        ul.menu
+            li
+                a(href='#/list') List
+            li
+                a(href='#/new') New
+
+        div(ng-view)

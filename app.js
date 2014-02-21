@@ -10,6 +10,10 @@ routes.index = function(req, res) {
     res.render('./index', { title: 'MyMeanApp' });
 };
 
+routes.anyPartial = function (req, res) {
+    res.render('./partials/' + req.params.jadeFileName, {});
+};
+
 var maxCacheDuration = 1*24*60*60;
 var app = express();
 
@@ -34,6 +38,7 @@ app.configure('development', function(){
 
 
 app.get('/', routes.index);
+app.get('/partials/:jadeFileName', routes.anyPartial);
 
 var expressServer = http.createServer(app).listen(app.get('port'), function(){
     console.log("Express server listening on port " + app.get('port'));
