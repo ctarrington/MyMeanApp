@@ -1,1 +1,6 @@
-div List
+div List  {{ model.greeting }}
+
+div.row(ng-repeat='pet in model.pets')
+    span {{ pet.name }}
+
+div(ng-show='model.pets[0].error != null') OH NO

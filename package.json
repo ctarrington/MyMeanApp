@@ -8,6 +8,7 @@
         "stylus": "*",
         "nib": "*",
         "sprintf": "*",
-        "moment": "*"
+        "moment": "*",
+        "mongoose": "*"
     }
 }
