@@ -4,35 +4,11 @@ var sprintf = require('sprintf').sprintf
     , http = require('http')
     , path = require('path')
     , moment = require('moment')
-    , mongoose = require('mongoose')
-    , Schema = mongoose.Schema;
     ;
 
-mongoose.connect('mongodb://localhost/test');
+    require('./lib/Persistence/db');
+    var Pet = require('./lib/Persistence/Pet').model();
 
-var db = mongoose.connection;
-db.on('error', console.error.bind(console, 'connection error:'));
-
-db.once('open', function () {
-    console.log('Connected to MongoDB!');
-});
-
-/**
- * Pet Schema
- */
-var PetSchema = new Schema({
-    created: {
-        type: Date,
-        default: Date.now
-    },
-    name: {
-        type: String,
-        default: '',
-        trim: true
-    }
-});
-
-var Pet = mongoose.model('Pet', PetSchema);
 
 var routes = {};
 routes.index = function(req, res) {
